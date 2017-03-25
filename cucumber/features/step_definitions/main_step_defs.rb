@@ -11,6 +11,7 @@ When(/^I give the right answers$/) do
   select('Nooooooo!', from: 'quote')
 end
 
-Then(/^I should see a message "([^"]*)"$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^I should see a message "([^"]*)"$/) do |the_right_message|
+  click_button('Am I a true fan?')
+  expect(page).to have_text the_right_message
 end
