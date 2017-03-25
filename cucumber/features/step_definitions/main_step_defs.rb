@@ -1,5 +1,5 @@
 Given(/^I am on the main game page$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  page.visit('file:///Users/adrian/workspace/cucumber/cuke-workshop/starwarsquotes.html')
 end
 
 When(/^I put my name as "([^"]*)"$/) do |arg1|
