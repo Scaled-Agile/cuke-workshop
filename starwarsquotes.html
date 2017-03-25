@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Star Wars Quotes</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <script type="text/JavaScript">
+
+    var answers = [{
+        character: "Han Solo",
+        quote: "\"Hokey religions and ancient weapons are no match for a good blaster at your side, kid.\""
+    }, {
+        character: "Princess Leia",
+        quote: "\"Aren't you a little short for a stormtrooper?\""
+    }, {
+        character: "Luke Skywalker",
+        quote: "\"Nooooooo!\""
+    }, {
+        character: "Darth Vader",
+        quote: "\"I am your father!\""
+    }, {
+        character: "R2D2",
+        quote: "\"Beep Beep boop\""
+    }];
+
+    function checkAnswer(){
+      var name = document.getElementById("name").value;
+      if ( name == '' ) {
+        alert("Please enter your name");
+        return false;
+      }
+
+      var c = document.getElementById("character");
+      var character = c.options[c.selectedIndex].text;
+      var q = document.getElementById("quote");
+      var quote = q.options[q.selectedIndex].text;
+      verify(character, quote, name);
+      return false;
+    }
+
+    function verify(character, quote, name) {
+        var found = answers.some(function (el) {
+          if(el.character === character && el.quote == quote){
+             return true;
+          }
+        });
+        if (!found) {
+          console.log("Wrong!");
+          window.open("./message.html?wrong="+name, "_self");
+
+        }
+        else {
+          console.log("Correct!")
+          window.open("./message.html?correct="+name, "_self");
+        }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="jumbotron">
+        <h1>Star Wars Quotes Game</h1> 
+        <p>This is a test to see if you are a real Star Wars fan!</p> 
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+      <form>
+        <div class="form-group">
+          <h3><label>What is your name?</label></h3>
+          <input required="true" type="text" class="form-control" id="name" placeholder="Name">
+        </div>
+
+        <div class="form-group">
+          <h3><label> Please select your favorite Star Wars character </label></h3>
+          <select id="character" class="form-control">
+            <option>Character</option>
+            <option>Han Solo</option>
+            <option>Princess Leia</option>
+            <option>Luke Skywalker</option>
+            <option>Darth Vader</option>
+            <option>R2D2</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <h3><label>Select one of the quotes your character says in any of the movies</label></h3>
+          <select id="quote" class="form-control">
+            <option>Quote</option>
+            <option>"These aren't the droids you're looking for"</option>
+            <option>"Aren't you a little short for a stormtrooper?"</option>
+            <option>"Nooooooo!"</option>
+            <option>"Beep Beep boop"</option>
+            <option>"I am your father!"</option>
+            <option>"Hokey religions and ancient weapons are no match for a good blaster at your side, kid."</option>
+          </select>
+        </div>
+        <button id="fan-button" type="submit" class="btn btn-success btn-lg" onClick="return checkAnswer()">Am I a true fan?</button>
+      </form>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+
+  </div>
+</body>
+</html>
