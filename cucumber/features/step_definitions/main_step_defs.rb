@@ -2,8 +2,8 @@ Given(/^I am on the main game page$/) do
   page.visit('file:///Users/adrian/workspace/cucumber/cuke-workshop/starwarsquotes.html')
 end
 
-When(/^I put my name as "([^"]*)"$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I put my name as "([^"]*)"$/) do |name|
+  fill_in('name', with: name)
 end
 
 When(/^I give the right answers$/) do
