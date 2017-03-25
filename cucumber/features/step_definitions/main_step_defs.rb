@@ -7,7 +7,8 @@ When(/^I put my name as "([^"]*)"$/) do |name|
 end
 
 When(/^I give the right answers$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  select('Luke Skywalker', from: 'character')
+  select('Nooooooo!', from: 'quote')
 end
 
 Then(/^I should see a message "([^"]*)"$/) do |arg1|
