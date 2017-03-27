@@ -1,5 +1,7 @@
 Given(/^I am on the main game page$/) do
-  page.visit('file:///Users/adrian/workspace/cucumber/cuke-workshop/starwarsquotes.html')
+  parent_dir = File.expand_path("..", Dir.pwd)
+  path_to_app = 'file://' + parent_dir + '/starwarsquotes.html'
+  page.visit path_to_app
 end
 
 When(/^I put my name as "([^"]*)"$/) do |name|
