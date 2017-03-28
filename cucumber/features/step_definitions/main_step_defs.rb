@@ -1,4 +1,7 @@
 Given(/^I am on the main game page$/) do
+  prefix = 'file://'
+  prefix = 'file:///' if RUBY_PLATFORM.to_s.include?('mingw')
+  
   parent_dir = File.expand_path("..", Dir.pwd)
   path_to_app = 'file://' + parent_dir + '/starwarsquotes.html'
   page.visit path_to_app
